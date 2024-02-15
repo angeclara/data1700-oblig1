@@ -6,8 +6,41 @@
 </head>
 <body>
 <h1>Bestilling av kinobiletter</h1>
-<p>Velg film</p>
-<input type="checkbox" id="antall">
+<label for="film">Velg film: </label>
+<select name="film" value="Velg film her" id="film">
+    <option value="The hunger games">The hunger games</option>
+    <option value="Anyone but you">Anyone but you</option>
+    <option value="Wonka">Wonka</option>
+    <option value="Dune 2">Dune 2</option>
+    <option value="Madame Webb">Madame Webb</option>
+    <option value="Argylle">Argylle</option>
+</select>
+<br>
+<br>
+<br>
+<label for="antall">Antall: </label><span><input type="number" id="antall"></span>
+<br>
+<br>
+<br>
+<form id="k-details">
+    <label for="name">Fornavn </label><span><input type="text" id="name"></span>
+    <br>
+    <br>
+    <label for="name">Etternavn </label><span><input type="text" id="name"></span>
+    <br>
+    <br>
+    <label for="number">Telefonnr </label><span><input type="text" id="number"></span>
+    <br>
+    <br>
+    <label for="email">E-post </label><span><input type="email" id="email"></span>
+    <br>
+    <br>
+    <input type="submit" value="Kjøp Bilett">
+</form>
+
+<h2>Alle Billetter</h2>
+
+<button onclick="slettBilletter()">Slett alle billettene</button>
 
 </body>
 </html>
