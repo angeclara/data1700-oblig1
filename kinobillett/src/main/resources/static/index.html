@@ -22,6 +22,7 @@
 <br>
 <br>
 <br>
+<!-- return false slik at skjemaet ikke kjører siden på nytt og fjerner listen -->
 <form onsubmit="return false">
     <label for="fNavn">Fornavn </label>
     <input type="text" required id="fNavn" placeholder="Fornavn">
@@ -32,20 +33,22 @@
     <br>
     <br>
     <label for="num">Telefonnr </label>
-    <input type="text" required id="num" placeholder="Nummer">
+    <input type="text" required id="num" placeholder="12345678">
     <span id="numError" style="color: red;"></span>
     <br>
     <br>
     <label for="eMail">E-post </label>
-    <input type="text" required id="eMail" placeholder="E-mail">
+    <input type="text" required id="eMail" placeholder="test@mail.com">
     <span id="emailError" style="color: red;"></span>
     <br>
     <br>
+    <!-- kaller på funskjonen kjop() -->
     <button type="submit" onclick="kjop()">Kjøp billett!</button>
 </form>
 
 <h2>Alle Billetter</h2>
 <p id="b1"></p>
+<!-- kaller på funskjonen slett() -->
 <button onclick="slett()">Slett alle billettene</button>
 <script src="kinokode.js"></script>
 </body>
