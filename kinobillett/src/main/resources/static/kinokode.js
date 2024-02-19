@@ -13,17 +13,20 @@ function kjop() {
     let epost = document.getElementById("eMail").value;
     let antall = document.getElementById("antall").value;
 
+    let ifValid = true;
+
     /* Her har jeg email validering som jeg har laget ved bruk av et regEX
-    mønster jeg fikk fra https://regexr.com/3e48o :)
-     */
+        mønster jeg fikk fra https://regexr.com/3e48o :)
+         */
     const emailPattern = /^[\w-\.]+@[\w-]+\.+[\w-]{2,4}$/g;
     let emailErrorMessage = document.getElementById("emailError");
     /* setningen sier at hvis testen feiler så skal <span> elementet mitt i HTML-en dukke opp og return false
     for å hindre verdien i å være gyldig dermed ikke gyldig i arrayet.
      */
-    if (!emailPattern.test(epost)) {
+    if (!emailPattern.test(epost) || !epost) {
         emailErrorMessage.innerHTML = "Vennligst skriv inn en gyldig e-postadresse.";
-        return false;
+        ifValid = false;
+
     } else {
         emailErrorMessage.innerHTML = ""; // hindrer meldingen i å komme om det er riktig validering
     }
@@ -31,28 +34,32 @@ function kjop() {
     // telefonnummer validering ved hjelp av RegEx igjen, 8 sifferet telefonnummer standard i Norge.
     const numPattern = /^\d{8}$/g;
     let numErrorMessage = document.getElementById("numError");
-    if (!numPattern.test(telefonnummer)) {
+    if (!numPattern.test(telefonnummer) || !telefonnummer) {
         numErrorMessage.innerHTML = "Vennligst skriv inn et gyldig telefonnummer.";
-        return false;
+        ifValid = false;
     } else {
-        numErrorMessage.innerHTML = ""; // Clear error message if phone number is valid
+        numErrorMessage.innerHTML = "";
     }
 
     // denne setningen skal sjekke om alle inputbokser er fylt ut, og gir med popup boks om de ikke er det.
     if (!film || !fornavn || !etternavn || !telefonnummer || !epost || !antall) {
         alert("Vennligst fyll ut alle feltene.");
-        return false;
-
-        // else her fyller arrayet om alle felt er fylt.
-    }else {
-        kunde.push({
-            filmName: film,
-            amountKey: antall,
-            nameKey: fornavn + " " + etternavn,
-            numberKey: telefonnummer,
-            emailKey: epost
-        });
+        ifValid = false;
     }
+
+    // jeg la til denne da feilmeldingene kun vill komme frem en gang dette sjekker en alle
+    // valideringene og slå først sjema ut som ugyldig når alle valideringer er sjekket og ikke før.
+    if (!ifValid) {
+        return  false;
+    }
+
+    kunde.push({
+        filmName: film,
+        amountKey: antall,
+        nameKey: fornavn + " " + etternavn,
+        numberKey: telefonnummer,
+        emailKey: epost
+    });
 
     // her kaller jeg på funskjonen kundelogg for at listen skal komme frem når funskjon kjop er i bruk
     kundelogg(kunde);
