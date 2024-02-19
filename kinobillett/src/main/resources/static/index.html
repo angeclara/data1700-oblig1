@@ -18,24 +18,30 @@
 <br>
 <br>
 <br>
-<label for="antall">Antall: </label><span><input type="number" id="antall"></span>
+<label for="antall">Antall: </label><input type="number" id="antall">
 <br>
 <br>
 <br>
-<form id="k-details">
-    <label for="fNavn">Fornavn </label><span><input type="text" id="fNavn"></span>
+<form onsubmit="return false">
+    <label for="fNavn">Fornavn </label>
+    <input type="text" required id="fNavn" placeholder="Fornavn">
     <br>
     <br>
-    <label for="eNavn">Etternavn </label><span><input type="text" id="eNavn"></span>
+    <label for="eNavn">Etternavn </label>
+    <input type="text" required id="eNavn" placeholder="Etternavn">
     <br>
     <br>
-    <label for="num">Telefonnr </label><span><input type="text" id="num"></span>
+    <label for="num">Telefonnr </label>
+    <input type="text" required id="num" placeholder="Nummer">
+    <span id="numError" style="color: red;"></span>
     <br>
     <br>
-    <label for="eMail">E-post </label><span><input type="email" id="eMail"></span>
+    <label for="eMail">E-post </label>
+    <input type="text" required id="eMail" placeholder="E-mail">
+    <span id="emailError" style="color: red;"></span>
     <br>
     <br>
-    <button type="button" onclick="kjop()">Kjøp</button>
+    <button type="submit" onclick="kjop()">Kjøp billett!</button>
 </form>
 
 <h2>Alle Billetter</h2>
