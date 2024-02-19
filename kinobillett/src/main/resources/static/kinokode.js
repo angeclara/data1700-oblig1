@@ -23,7 +23,7 @@ function kjop() {
     /* setningen sier at hvis testen feiler så skal <span> elementet mitt i HTML-en dukke opp og return false
     for å hindre verdien i å være gyldig dermed ikke gyldig i arrayet.
      */
-    if (!emailPattern.test(epost) || !epost) {
+    if (!emailPattern.test(epost)) {
         emailErrorMessage.innerHTML = "Vennligst skriv inn en gyldig e-postadresse.";
         ifValid = false;
 
@@ -34,7 +34,7 @@ function kjop() {
     // telefonnummer validering ved hjelp av RegEx igjen, 8 sifferet telefonnummer standard i Norge.
     const numPattern = /^\d{8}$/g;
     let numErrorMessage = document.getElementById("numError");
-    if (!numPattern.test(telefonnummer) || !telefonnummer) {
+    if (!numPattern.test(telefonnummer)) {
         numErrorMessage.innerHTML = "Vennligst skriv inn et gyldig telefonnummer.";
         ifValid = false;
     } else {
